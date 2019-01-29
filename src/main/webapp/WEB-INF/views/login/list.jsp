@@ -6,7 +6,6 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Linki</h1>
-    <%--<a href="${pageContext.request.contextPath}/user/list">wszystkie</a>--%>
+<h1>Błąd</h1>
 </body>
 </html>

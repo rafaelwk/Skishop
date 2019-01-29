@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,26 +17,25 @@
 <body>
 
 <form:form method="post"
-           action="${formAction}"
-           modelAttribute="book"
-           cssClass="container col-2" >
+                 action="${formAction}"
+                 modelAttribute="binding"
+                 cssClass="container col-2" >
 
     <form:hidden path="id" />
-    <form:input path="title" placeholder="title" cssClass="form-input"/>
-    <form:errors path="title" cssClass="alert"/>
 
-    <form:input path="tweetText" placeholder="tweetText"  cssClass="form-input"/>
-    <form:errors path="tweetText" />
+    <form:input path="name" placeholder="name" cssClass="form-input"/>
+    <form:errors path="name" cssClass="alert"/>
 
+    <form:input path="activites" placeholder="activites" cssClass="form-input"/>
+    <form:errors path="activites" cssClass="alert"/>
 
-    <form:input path="created" value="${tweet.birtday}" placeholder="created" />
-    <form:input path="user"  placeholder="user" />
+    <form:input path="color" placeholder="color"  cssClass="form-input"/>
+    <form:errors path="color" />
 
-
-
+    <form:input path="price" placeholder="price" />
+    <form:errors path="price" />
 
     <input type="submit"  class="btn btn-success">
 </form:form>
-
 </body>
 </html>
