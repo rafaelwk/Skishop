@@ -48,8 +48,6 @@ public class LoginController {
                            HttpServletRequest request,
                            HttpSession session) {
 
-
-
         if (errors.hasErrors()) {
             return "login/form";
         }
@@ -57,8 +55,7 @@ public class LoginController {
             User userLoged = (User) session.getAttribute("user");
             return "redirect:" + request.getContextPath() + "/";
         }
-        return "redirect:" + request.getContextPath() + "/product/login/form";
-
+        return "redirect:" + request.getContextPath() + "/login/form";
 
     }
 }

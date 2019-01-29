@@ -22,7 +22,7 @@ public class BindingController {
     private BindingRepository bindingRepository;
 
     @GetMapping("/form")
-    public String addBindig(Model model, HttpServletRequest request) {
+    public String addBinding(Model model, HttpServletRequest request) {
         model.addAttribute("binding", new Binding());
         model.addAttribute("formAction", request.getContextPath() + "/product/binding/save");
         return "product/binding/form";
@@ -30,7 +30,7 @@ public class BindingController {
     }
 
     @GetMapping("/edit/{id}")
-    public String saveBinding(Model model, HttpServletRequest request, @PathVariable Long id){
+    public String editBinding(Model model, HttpServletRequest request, @PathVariable Long id){
         Binding binding = bindingRepository.findOne(id);
         model.addAttribute("binding", binding);
         model.addAttribute("formAction", request.getContextPath() + "/product/binding/save");
@@ -38,7 +38,7 @@ public class BindingController {
     }
 
     @PostMapping("/save")
-    public String savePublisher(@Valid Binding binding, BindingResult errors, HttpServletRequest request){
+    public String saveBinding(@Valid Binding binding, BindingResult errors, HttpServletRequest request){
         if (errors.hasErrors()) {
             return "product/binding/form";
         }

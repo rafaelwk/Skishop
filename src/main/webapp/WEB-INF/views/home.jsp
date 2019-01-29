@@ -14,21 +14,34 @@
 <body>
     <h1>Skishop</h1>
 
-    User: ${user.userName}
+
 
     <c:if test="${not empty user}">
-
-        <p>Hello, ${user.userName}</p>
-        <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
-        <a href="${pageContext.request.contextPath}/login/logout/">wyloguj się</a>
+        <div>
+            <p>Hello, ${user.userName}</p>
+            <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
+            <a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>
+            <a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>
+            <a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>
+        </div>
+        <div>
+            <a href="${pageContext.request.contextPath}/login/logout/">wyloguj się</a>
+        </div>
 
     </c:if>
 
     <c:if test="${empty user}">
 
-        <a href="${pageContext.request.contextPath}/login/form/">Zaloguj się</a>
-        <a href="${pageContext.request.contextPath}/user/form/${user.password}">Zarejstruj się</a>
-        <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
+        <div>
+            <a href="${pageContext.request.contextPath}/login/form/">Zaloguj się</a>
+            <a href="${pageContext.request.contextPath}/user/form/${user.password}">Zarejstruj się</a>
+        </div>
+        <div>
+            <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
+            <a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>
+            <a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>
+            <a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>
+        </div>
     </c:if>
 
 </body>

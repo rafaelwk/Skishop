@@ -3,10 +3,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>binding</title>
+    <title>boots</title>
 </head>
 <body>
-<h1>Binding</h1>
+<h1>Boot</h1>
 <%--<a href="${pageContext.request.contextPath}/book/list"><h3>Books</h3></a>--%>
 <%--<a href="${pageContext.request.contextPath}/publisher/list"><h3>Publisher</h3></a>--%>
 <%--<a href="${pageContext.request.contextPath}/author/form">Dodaj</a>--%>
@@ -15,12 +15,12 @@
 </c:if>
 
 <ul>
-    <c:forEach items="${bindings}" var="binding">
+    <c:forEach items="${boots}" var="boot">
     <li>
-        <h2>${binding.name}</h2>
+        <h2>${boot.name}</h2>
         <p>
-            <a href="${pageContext.request.contextPath}/product/binding/edit/${binding.id}">edytuj</a>
-            <a href="${pageContext.request.contextPath}/product/binding/delete/${binding.id}">usuń</a>
+            <a href="${pageContext.request.contextPath}/product/boot/edit/${boot.id}">edytuj</a>
+            <a href="${pageContext.request.contextPath}/product/boot/delete/${boot.id}">usuń</a>
 
         </p>
     </li>
@@ -30,3 +30,4 @@
 
 </body>
 </html>
+

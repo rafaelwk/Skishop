@@ -8,11 +8,10 @@ import javax.persistence.*;
 @Table(name = "bindings")
 public class Binding extends Product{
 
-
-
+    @NotEmpty
     private String activites;
 
-
+    @NotEmpty
     private String color;
 
     public Binding() {
