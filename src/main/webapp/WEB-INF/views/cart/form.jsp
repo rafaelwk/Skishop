@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>boots</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
         input, select{
@@ -15,25 +15,27 @@
     </style>
 </head>
 <body>
-
 <form:form method="post"
-                 action="${formAction}"
-                 modelAttribute="binding"
-                 cssClass="container col-2" >
+           action="${formAction}"
+           modelAttribute="cart"
+           cssClass="container col-2" >
 
     <form:hidden path="id" />
 
-    <form:input path="name" placeholder="name" cssClass="form-input"/>
-    <form:errors path="name" cssClass="alert"/>
+    <form:input path="user" placeholder="user" cssClass="form-input"/>
+    <form:errors path="user" cssClass="alert"/>
 
-    <form:input path="activites" placeholder="activites" cssClass="form-input"/>
-    <form:errors path="activites" cssClass="alert"/>
+    <form:input path="status" placeholder="status"  cssClass="form-input"/>
+    <form:errors path="status" />
 
-    <form:input path="color" placeholder="color"  cssClass="form-input"/>
-    <form:errors path="color" />
+    <form:select path="cartItem"  cssClass="form-input">
+        <form:option value="0" disabled="true" selected="true">Wybierz wybierz typ produktu</form:option>
+        <form:options  items="${cartItems}"
+                       itemValue="id"
+                       itemLabel="name" />
+    </form:select>
 
-    <form:input path="price" placeholder="price" />
-    <form:errors path="price" />
+
 
     <input type="submit"  class="btn btn-success">
 </form:form>

@@ -18,10 +18,10 @@ public class FormatterConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getUserConverter());
-        registry.addConverter(getBindingConverter());
-        registry.addConverter(getBootConverter());
-        registry.addConverter(getPolesConverter());
-        registry.addConverter(getSkiConverter());
+        registry.addConverter(getProductTypeConverter());
+        registry.addConverter(getProductConverter());
+        registry.addConverter(getCartItemConverter());
+        registry.addConverter(getCartConverter());
     }
 
     @Bean
@@ -30,23 +30,23 @@ public class FormatterConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public BindingConverter getBindingConverter() {
-        return new BindingConverter();
+    public ProductTypeConverter getProductTypeConverter() {
+        return new ProductTypeConverter();
     }
 
     @Bean
-    public BootConverter getBootConverter() {
-        return new BootConverter();
+    public ProductConverter getProductConverter() {
+        return new ProductConverter();
     }
 
     @Bean
-    public PolesConverter getPolesConverter() {
-        return new PolesConverter();
+    public CartItemConverter getCartItemConverter() {
+        return new CartItemConverter();
     }
 
     @Bean
-    public SkiConverter getSkiConverter() {
-        return new SkiConverter();
+    public CartConverter getCartConverter() {
+        return new CartConverter();
     }
 
 

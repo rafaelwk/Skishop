@@ -5,16 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.entity.Cart;
+import pl.coderslab.entity.Product;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.CartRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.services.UserService;
 import pl.coderslab.validator.groups.ValidationLoginGroup;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -25,6 +26,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CartRepository cartRepository;
 
     @GetMapping("/form")
     public String addUser(Model model, HttpServletRequest request) {
@@ -47,6 +51,11 @@ public class UserController {
         }
         return "redirect:" + request.getContextPath() + "/";
 
+    }
+
+    @ModelAttribute("carts")
+    public List<Cart> productList() {
+        return cartRepository.findAll();
     }
 
 }

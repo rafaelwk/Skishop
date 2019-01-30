@@ -1,24 +1,29 @@
 package pl.coderslab.entity;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@MappedSuperclass
-public abstract class Product {
+@Entity
+@Table(name = "products")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     @NotEmpty
     private String name;
 
-    @Column
     @NotEmpty
     private String price;
+
+    @ManyToOne
+    private ProductType productType;
+
+    @OneToMany(mappedBy = "product")
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public Product() {
    }
@@ -47,5 +52,24 @@ public abstract class Product {
         this.price = price;
     }
 
+    public ProductType getProductType() {
+        return productType;
+    }
 
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{}";
+    }
 }

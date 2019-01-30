@@ -17,25 +17,19 @@
 <body>
 <form:form method="post"
            action="${formAction}"
-           modelAttribute="ski"
+           modelAttribute="cartItem"
            cssClass="container col-2" >
 
     <form:hidden path="id" />
 
-    <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
-    <form:errors path="name" cssClass="alert"/>
+    <form:input path="quantity" placeholder="quantity" cssClass="form-input"/>
+    <form:errors path="quantity" cssClass="alert"/>
 
-    <form:input path="gender" placeholder="płeć" cssClass="form-input"/>
-    <form:errors path="gender" />
+    <form:input path="product" placeholder="product" cssClass="form-input"/>
+    <form:errors path="product" />
 
-    <form:input path="price" placeholder="cena" cssClass="form-input"/>
-    <form:errors path="price" />
-
-    <form:input path="length" placeholder="długość" cssClass="form-input"/>
-    <form:errors path="length" />
-
-    <form:input path="radial" placeholder="promień" cssClass="form-input"/>
-    <form:errors path="radial" />
+    <form:input path="cart" placeholder="cart" cssClass="form-input"/>
+    <form:errors path="cart" />
 
 
     <input type="submit"  class="btn btn-success">

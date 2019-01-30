@@ -19,10 +19,10 @@
     <c:if test="${not empty user}">
         <div>
             <p>Hello, ${user.userName}</p>
-            <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
-            <a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>
-            <a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>
-            <a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>
+            <a href="${pageContext.request.contextPath}/productType/form/">Typ produktu</a>
+            <%--<a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>--%>
+            <%--<a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>--%>
+            <%--<a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>--%>
         </div>
         <div>
             <a href="${pageContext.request.contextPath}/login/logout/">wyloguj się</a>
@@ -37,10 +37,10 @@
             <a href="${pageContext.request.contextPath}/user/form/${user.password}">Zarejstruj się</a>
         </div>
         <div>
-            <a href="${pageContext.request.contextPath}/product/binding/form/">WIązania</a>
-            <a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>
-            <a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>
-            <a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>
+            <a href="${pageContext.request.contextPath}/productType/form/">Typ produktu</a>
+            <%--<a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>--%>
+            <%--<a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>--%>
+            <%--<a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>--%>
         </div>
     </c:if>
 

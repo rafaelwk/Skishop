@@ -17,7 +17,7 @@
 <body>
 <form:form method="post"
            action="${formAction}"
-           modelAttribute="poles"
+           modelAttribute="product"
            cssClass="container col-2" >
 
     <form:hidden path="id" />
@@ -25,14 +25,19 @@
     <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
     <form:errors path="name" cssClass="alert"/>
 
-    <form:input path="color" placeholder="kolor"  cssClass="form-input"/>
-    <form:errors path="color" />
-
     <form:input path="price" placeholder="cena" cssClass="form-input"/>
     <form:errors path="price" />
 
-    <form:input path="size" placeholder="długość" cssClass="form-input"/>
-    <form:errors path="size" />
+    <form:input path="productType" placeholder="productType" cssClass="form-input"/>
+    <form:errors path="productType" />
+
+    <form:select path="cartItem"  cssClass="form-input">
+    <form:option value="0" disabled="true" selected="true">Wybierz wydawcę</form:option>
+    <form:options  items="${cartItems}"
+                   itemValue="id"
+                   itemLabel="name" />
+    </form:form>
+
 
 
     <input type="submit"  class="btn btn-success">

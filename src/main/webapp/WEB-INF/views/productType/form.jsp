@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>boots</title>
+    <title>Title</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
         input, select{
@@ -15,30 +15,16 @@
     </style>
 </head>
 <body>
+
 <form:form method="post"
-           action="${formAction}"
-           modelAttribute="boot"
-           cssClass="container col-2" >
+                 action="${formAction}"
+                 modelAttribute="productType"
+                 cssClass="container col-2" >
 
     <form:hidden path="id" />
 
-    <form:input path="name" placeholder="nazwa" cssClass="form-input"/>
+    <form:input path="name" placeholder="name" cssClass="form-input"/>
     <form:errors path="name" cssClass="alert"/>
-
-    <form:input path="flex" placeholder="twardość" cssClass="form-input"/>
-    <form:errors path="flex" cssClass="alert"/>
-
-    <form:input path="color" placeholder="kolor"  cssClass="form-input"/>
-    <form:errors path="color" />
-
-    <form:input path="price" placeholder="cena" cssClass="form-input"/>
-    <form:errors path="price" />
-
-    <form:input path="gender" placeholder="płeć" cssClass="form-input"/>
-    <form:errors path="gender" />
-
-    <form:input path="size" placeholder="rozmiar" cssClass="form-input"/>
-    <form:errors path="size" />
 
 
     <input type="submit"  class="btn btn-success">

@@ -6,6 +6,8 @@ import pl.coderslab.validator.groups.ValidationRegisterGroup;
 
 import javax.persistence.*;
 import javax.validation.groups.Default;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -43,6 +45,9 @@ public class User {
     private String email;
 
     private boolean enabled = true;
+
+    @OneToMany(mappedBy = "user")
+    private List<Cart> carts = new ArrayList<>();
 
     public User() {
     }
@@ -133,6 +138,14 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 
     @Override
