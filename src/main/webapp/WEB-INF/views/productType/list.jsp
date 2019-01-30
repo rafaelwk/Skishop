@@ -7,9 +7,7 @@
 </head>
 <body>
 <h1>Rodzaj produktu</h1>
-<%--<a href="${pageContext.request.contextPath}/book/list"><h3>Books</h3></a>--%>
-<%--<a href="${pageContext.request.contextPath}/publisher/list"><h3>Publisher</h3></a>--%>
-<%--<a href="${pageContext.request.contextPath}/author/form">Dodaj</a>--%>
+
 <c:if test="${not empty user}">
     <p>Hello, ${user.userName}</p>
 </c:if>

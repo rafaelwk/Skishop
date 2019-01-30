@@ -7,16 +7,20 @@
 </head>
 <body>
 <ul>
-    <h2>${product.productType.name}</h2>
+    <a href="${pageContext.request.contextPath}/">główna</a> ||
+
     <c:forEach items="${producttypes}" var="product">
     <li>
+        <h2>${product.productType.name}</h2>
         <h3>${product.name}</h3>
         <h4>cena: ${product.price}</h4>
 
         <p>
-            <a href="${pageContext.request.contextPath}/product/edit/${product.id}">edytuj</a>
-            <a href="${pageContext.request.contextPath}/product/delete/${product.id}">usuń</a>
-            <a href="${pageContext.request.contextPath}/cartItem/form/">dodaj do koszyka</a>
+            <c:if test="${user.adminUser == true}">
+                <a href="${pageContext.request.contextPath}/product/edit/${product.id}">edytuj</a>
+                <a href="${pageContext.request.contextPath}/product/delete/${product.id}">usuń</a>
+            </c:if>
+            <a href="${pageContext.request.contextPath}/cartItem/form/${product.id}">dodaj do koszyka</a>
 
         </p>
     </li>

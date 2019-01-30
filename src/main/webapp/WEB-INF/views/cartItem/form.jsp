@@ -20,16 +20,18 @@
            modelAttribute="cartItem"
            cssClass="container col-2" >
 
+    <h3>${product.productType.name}</h3>
+    <h3>${product.name}</h3>
+    <h3>${product.price}</h3>
+
+
     <form:hidden path="id" />
 
-    <form:input path="quantity" placeholder="quantity" cssClass="form-input"/>
+    <form:input path="quantity" placeholder="ilość sztuk" cssClass="form-input"/>
     <form:errors path="quantity" cssClass="alert"/>
 
-    <form:input path="product" placeholder="product" cssClass="form-input"/>
-    <form:errors path="product" />
-
-    <form:input path="cart" placeholder="cart" cssClass="form-input"/>
-    <form:errors path="cart" />
+    <%--<form:input path="product" placeholder="product" cssClass="form-input"/>--%>
+    <%--<form:errors path="product" />--%>
 
 
     <input type="submit"  class="btn btn-success">

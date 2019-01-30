@@ -15,10 +15,13 @@
     </style>
 </head>
 <body>
+
 <form:form method="post"
            action="${formAction}"
            modelAttribute="product"
            cssClass="container col-2" >
+
+    <h3>${produktType.name}</h3>
 
     <form:hidden path="id" />
 

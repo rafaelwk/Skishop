@@ -49,8 +49,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Cart> carts = new ArrayList<>();
 
-    @Transient
-    private boolean AdminUser = false;
+
+    private boolean adminUser = false;
 
     public User() {
     }
@@ -152,11 +152,11 @@ public class User {
     }
 
     public boolean isAdminUser() {
-        return AdminUser;
+        return adminUser;
     }
 
     public void setAdminUser(boolean adminUser) {
-        AdminUser = adminUser;
+        this.adminUser = adminUser;
     }
 
     @Override

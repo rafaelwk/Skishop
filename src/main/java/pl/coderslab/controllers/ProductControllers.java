@@ -31,6 +31,7 @@ public class ProductControllers {
         Product product = new Product();
         model.addAttribute("product", product);
         model.addAttribute("formAction", request.getContextPath() + "/product/form/"+productTypeId);
+        model.addAttribute("produktType" ,productTypeRepository.findOne(productTypeId));
         return "product/form";
     }
 
@@ -39,10 +40,10 @@ public class ProductControllers {
         ProductType productType = productTypeRepository.findOne(productTypeId);
         product.setProductType(productType);
         if(error.hasErrors()){
-            return "product/form";
+            return ("product/form"+productTypeId);
         }
         productRepsitory.save(product);
-        return "product/form";
+        return "productType/list";
     }
 
     @GetMapping("/listtype/{productTypeid}")

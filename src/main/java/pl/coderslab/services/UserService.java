@@ -17,6 +17,7 @@ public class UserService {
     public void registerUser(User user, String repeatedPassword) throws Exception{
         if (userRepository.findAll().isEmpty()) {
             user.setAdminUser(true);
+
         }
 
         if(user.getPassword().equals(repeatedPassword)){

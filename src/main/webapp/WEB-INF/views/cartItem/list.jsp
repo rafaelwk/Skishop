@@ -7,17 +7,16 @@
 </head>
 <body>
 <h1>CartItem</h1>
-<%--<a href="${pageContext.request.contextPath}/book/list"><h3>Books</h3></a>--%>
-<%--<a href="${pageContext.request.contextPath}/publisher/list"><h3>Publisher</h3></a>--%>
-<%--<a href="${pageContext.request.contextPath}/author/form">Dodaj</a>--%>
-<c:if test="${not empty user}">
-    <p>Hello, ${user.userName}</p>
-</c:if>
+
+<%--<c:if test="${not empty user}">--%>
+    <%--<p>Hello, ${user.userName}</p>--%>
+<%--</c:if>--%>
 
 <ul>
+
     <c:forEach items="${cartItems}" var="cartItem">
     <li>
-        <h2>${cartItem.name}</h2>
+        <h2>${cartItem.quantity}</h2>
         <p>
             <a href="${pageContext.request.contextPath}/cartItem/edit/${cartItem.id}">edytuj</a>
             <a href="${pageContext.request.contextPath}/cartItem/delete/${cartItem.id}">usuń</a>
@@ -26,7 +25,7 @@
     </li>
     </c:forEach>
 
-
+</ul>
 
 </body>
 </html>
