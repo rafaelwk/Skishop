@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import pl.coderslab.converter.*;
+import pl.coderslab.entity.CartItem;
 
 @Configuration
 @ComponentScan("pl.coderslab")
@@ -22,6 +23,9 @@ public class FormatterConfig implements WebMvcConfigurer {
         registry.addConverter(getBootConverter());
         registry.addConverter(getPolesConverter());
         registry.addConverter(getSkiConverter());
+        registry.addConverter(getCartConverter());
+        registry.addConverter(getProductConverter());
+        registry.addConverter(getCartItemConverter());
     }
 
     @Bean
@@ -47,6 +51,20 @@ public class FormatterConfig implements WebMvcConfigurer {
     @Bean
     public SkiConverter getSkiConverter() {
         return new SkiConverter();
+    }
+
+    @Bean
+    public CartConverter getCartConverter() {
+        return new CartConverter();
+    }
+
+    @Bean
+    public ProductConverter getProductConverter() {
+        return new ProductConverter();
+    }
+    @Bean
+    public CartItemConverter getCartItemConverter() {
+        return new CartItemConverter();
     }
 
 

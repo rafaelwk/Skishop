@@ -13,7 +13,6 @@
 <c:if test="${not empty user}">
     <p>Hello, ${user.userName}</p>
 </c:if>
-
 <ul>
     <c:forEach items="${bindings}" var="binding">
     <li>
@@ -21,7 +20,12 @@
         <p>
             <a href="${pageContext.request.contextPath}/product/binding/edit/${binding.id}">edytuj</a>
             <a href="${pageContext.request.contextPath}/product/binding/delete/${binding.id}">usuń</a>
-
+            <c:if test="${not empty user}">
+            <a href="${pageContext.request.contextPath}/cart/form/">Dodaj do koszyka</a>
+            </c:if>
+            <c:if test="${empty user}">
+            <a href="${pageContext.request.contextPath}/login/form/">Dodaj do koszyka</a>
+            </c:if>
         </p>
     </li>
     </c:forEach>

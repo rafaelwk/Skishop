@@ -14,6 +14,10 @@ public class Binding extends Product{
     @NotEmpty
     private String color;
 
+
+//    @ManyToOne
+//    private Cart cart;
+
     public Binding() {
     }
 
@@ -33,6 +37,14 @@ public class Binding extends Product{
     public void setColor(String color) {
         this.color = color;
     }
+
+//    public Cart getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
 
     @Override
     public String toString() {

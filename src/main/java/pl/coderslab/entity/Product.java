@@ -1,12 +1,11 @@
 package pl.coderslab.entity;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @MappedSuperclass
-public abstract class Product {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +18,7 @@ public abstract class Product {
     @Column
     @NotEmpty
     private String price;
+
 
     public Product() {
    }
