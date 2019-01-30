@@ -7,8 +7,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.CartItem;
 import pl.coderslab.entity.Product;
+import pl.coderslab.entity.ProductType;
 import pl.coderslab.repository.CartItemRepository;
 import pl.coderslab.repository.ProductRepsitory;
+import pl.coderslab.repository.ProductTypeRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -22,7 +24,7 @@ public class ProductControllers {
     private ProductRepsitory productRepsitory;
 
     @Autowired
-    private CartItemRepository cartItemRepository;
+    private ProductTypeRepository productTypeRepository;
 
     @GetMapping("/form")
     public String add(Model model, HttpServletRequest request) {
@@ -61,8 +63,8 @@ public class ProductControllers {
         return "redirect:"+request.getContextPath()+"/product/list";
     }
 
-    @ModelAttribute("cartItems")
-    public List<CartItem> productList() {
-        return cartItemRepository.findAll();
+    @ModelAttribute("productTypes")
+    public List<ProductType> productTypeList() {
+        return productTypeRepository.findAll();
     }
 }
