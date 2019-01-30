@@ -15,6 +15,10 @@ public class UserService {
     private UserRepository userRepository;
 
     public void registerUser(User user, String repeatedPassword) throws Exception{
+        if (userRepository.findAll().isEmpty()) {
+            user.setAdminUser(true);
+        }
+
         if(user.getPassword().equals(repeatedPassword)){
             user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             userRepository.save(user);
@@ -27,8 +31,8 @@ public class UserService {
         sess.setAttribute("user",null);
 
         User user = userRepository.findFirstByUserName(login);
-        if(
-                user != null &&
+
+        if (user != null &&
                         user.isEnabled() &&
                         BCrypt.checkpw(password, user.getPassword())
         ){
@@ -44,6 +48,7 @@ public class UserService {
     public boolean isLogedIn(HttpSession sess){
         return (sess.getAttribute("user") != null);
     }
+
 
 
 

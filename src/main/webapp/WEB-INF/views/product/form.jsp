@@ -28,16 +28,6 @@
     <form:input path="price" placeholder="cena" cssClass="form-input"/>
     <form:errors path="price" />
 
-    <%--<form:input path="productType" placeholder="productType" cssClass="form-input"/>--%>
-    <%--<form:errors path="productType" />--%>
-
-    <form:select path="productType"  cssClass="form-input">
-    <form:option value="0" disabled="true" selected="true">Wybierz rodzaj sprzętu</form:option>
-    <form:options  items="${productTypes}"
-                   itemValue="id"
-                   itemLabel="name" />
-    </form:select>
-
 
 
     <input type="submit"  class="btn btn-success">

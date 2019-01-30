@@ -20,9 +20,10 @@
         <div>
             <p>Hello, ${user.userName}</p>
             <a href="${pageContext.request.contextPath}/productType/list/">dodaj produkt</a>
-            <%--<a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>--%>
-            <%--<a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>--%>
-            <%--<a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>--%>
+            <c:forEach items="${productTypes}" var="productType">
+                <a href="${pageContext.request.contextPath}/product/listtype/${productType.id}">${productType.name}</a>
+            </c:forEach>
+
         </div>
         <div>
             <a href="${pageContext.request.contextPath}/login/logout/">wyloguj się</a>
@@ -38,7 +39,9 @@
         </div>
         <div>
             <a href="${pageContext.request.contextPath}/productType/list/">Dodaj produkt</a>
-            <%--<a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>--%>
+            <a href="${pageContext.request.contextPath}/product/listboots/${buty}">Buty</a>
+
+        <%--<a href="${pageContext.request.contextPath}/product/boot/form/">Buty</a>--%>
             <%--<a href="${pageContext.request.contextPath}/product/poles/form/">Kijki</a>--%>
             <%--<a href="${pageContext.request.contextPath}/product/ski/form/">Narty</a>--%>
         </div>

@@ -16,7 +16,7 @@
 
 <a href="${pageContext.request.contextPath}/">główna</a> ||
 <a href="${pageContext.request.contextPath}/productType/form/">dodaj produkt</a> ||
-<a href="${pageContext.request.contextPath}/product/list/">dodaj sprzęt</a>
+
 
 <ul>
     <c:forEach items="${productTypes}" var="productType">
@@ -24,8 +24,8 @@
         <h2>${productType.name}</h2>
         <p>
             <a href="${pageContext.request.contextPath}/productType/edit/${productType.id}">edytuj</a>
-            <a href="${pageContext.request.contextPath}/productType/delete/${productType.id}">usuń</a>
-
+            <a href="${pageContext.request.contextPath}/productType/delete/">usuń</a>
+            <a href="${pageContext.request.contextPath}/product/form/${productType.id}">dodaj sprzęt</a>
 
         </p>
     </li>

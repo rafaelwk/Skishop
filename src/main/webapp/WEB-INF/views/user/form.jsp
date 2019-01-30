@@ -32,12 +32,12 @@
     <form:input path="email" placeholder="email" />
     <form:errors path="email" />
 
-    <form:select path="cart"  cssClass="form-input">
-        <form:option value="0" disabled="true" selected="true">Wybierz wybierz typ produktu</form:option>
-        <form:options  items="${carts}"
-                       itemValue="id"
-                       itemLabel="name" />
-    </form:select>
+    <%--<form:select path="cart"  cssClass="form-input">--%>
+        <%--<form:option value="0" disabled="true" selected="true">Wybierz wybierz typ produktu</form:option>--%>
+        <%--<form:options  items="${carts}"--%>
+                       <%--itemValue="id"--%>
+                       <%--itemLabel="name" />--%>
+    <%--</form:select>--%>
 
     <input type="submit"  class="btn btn-success">
 </form:form>
