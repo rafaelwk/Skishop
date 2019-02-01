@@ -8,13 +8,17 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Cart;
 import pl.coderslab.entity.Product;
+import pl.coderslab.entity.ProductType;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.CartRepository;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.services.UserService;
 import pl.coderslab.validator.groups.ValidationLoginGroup;
+import pl.coderslab.validator.groups.ValidationRegisterGroup;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -38,6 +42,25 @@ public class UserController {
 
     }
 
+    @GetMapping("/formfull")
+    public String addUserFull(HttpSession session, Model model, HttpServletRequest request) {
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user", user);
+        model.addAttribute("formAction", request.getContextPath() + "/user/savefull");
+        return "user/formfull";
+
+    }
+
+    @PostMapping("/savefull")
+    public String save(HttpSession session, @Validated(ValidationRegisterGroup.class) User user, BindingResult errors, HttpServletRequest request){
+        if (errors.hasErrors()) {
+            return "user/formfull";
+        }
+        userRepository.save(user);
+        session.setAttribute("user", user);
+        return "redirect:"+request.getContextPath()+"/cart/send";
+    }
+
     @PostMapping("/save")
     public String saveBook(@Validated({ValidationLoginGroup.class}) User user, BindingResult errors, HttpServletRequest request, @RequestParam String pwd2) {
         if (errors.hasErrors()) {
@@ -51,6 +74,13 @@ public class UserController {
         }
         return "redirect:" + request.getContextPath() + "/";
 
+    }
+
+
+    @GetMapping("/list")
+    public String showAll(Model model) {
+        model.addAttribute("users", userRepository.findAll());
+        return "user/list";
     }
 
     @ModelAttribute("carts")

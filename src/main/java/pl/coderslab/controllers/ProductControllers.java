@@ -62,20 +62,6 @@ public class ProductControllers {
         return "product/form";
     }
 
-    @PostMapping("/save")
-    public String save(@Valid Product product, BindingResult errors, HttpServletRequest request){
-        if (errors.hasErrors()) {
-            return "product/boot/form";
-        }
-        productRepsitory.save(product);
-        return "redirect:"+request.getContextPath()+"/product/list";
-    }
-
-    @GetMapping("/list")
-    public String showAll(Model model){
-        model.addAttribute("products", productRepsitory.findAll());
-        return "product/list";
-    }
 
     @RequestMapping(path = "/delete/{id}", produces = "text/html; charset=UTF-8")
     public String delete(@PathVariable Long id, HttpServletRequest request) {

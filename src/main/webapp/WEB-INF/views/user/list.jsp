@@ -8,20 +8,25 @@
 <body>
 
 <h1>Users</h1>
+
+<p><a href="${pageContext.request.contextPath}/">główna</a></p>
 <TABLE>
     <tr>
-        <td>imie</td><td>nazwisko</td><td>email</td><td>akcja</td>
+        <td>Login</td><td>email</td>
     </tr>
-    <tr>
-    <c:forEach items="${users}" var="author">
-        <td>${user.firstName}</td>
-        <td>${user.lastName}</td>
+
+    <c:forEach items="${users}" var="user">
+        <tr>
+        <td>${user.userName}</td>
         <td>${user.email}</td>
-        <td><a href="${pageContext.request.contextPath}/author/form/${author.id}">edytuj</a> <a href="${pageContext.request.contextPath}/author/delete/${author.id}">usuń</a></td>
-
-
+        <td><a href="${pageContext.request.contextPath}/user/form/${user.id}"></a>
+            <c:if test="${user.adminUser != true}">
+                <a href="${pageContext.request.contextPath}/user/delete/${user.id}">usuń</a>
+            </c:if>
+        </td>
+        </tr>
     </c:forEach>
-    </tr>
+
 </TABLE>
 </body>
 </html>

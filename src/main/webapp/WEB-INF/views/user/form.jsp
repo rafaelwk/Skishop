@@ -25,7 +25,7 @@
     <form:input path="userName" placeholder="userName" cssClass="form-input"/>
     <form:errors path="userName" cssClass="alert"/>
 
-    <form:input path="password" placeholder="password"  cssClass="form-input"/>
+    <form:password path="password" placeholder="password"  cssClass="form-input"/>
     <input type="password" name="pwd2" placeholder="repeat password"/>
     <form:errors path="password" />
 

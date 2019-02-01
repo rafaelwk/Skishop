@@ -2,6 +2,7 @@ package pl.coderslab.entity;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,8 @@ public class Product {
     @NotEmpty
     private String name;
 
-    @NotEmpty
-    private String price;
+    @NotNull
+    private Long price;
 
     @ManyToOne
     private ProductType productType;
@@ -44,13 +45,14 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
+
 
     public ProductType getProductType() {
         return productType;

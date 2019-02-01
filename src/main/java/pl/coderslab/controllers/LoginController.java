@@ -23,9 +23,6 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-//    @Autowired
-//    private UserRepository userRepository;
-
 
     @GetMapping("/logout")
     public String logout(HttpSession session){

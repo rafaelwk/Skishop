@@ -21,6 +21,7 @@
            modelAttribute="product"
            cssClass="container col-2" >
 
+    <p><a href="${pageContext.request.contextPath}/">główna</a></p>
     <h3>${produktType.name}</h3>
 
     <form:hidden path="id" />
@@ -30,6 +31,7 @@
 
     <form:input path="price" placeholder="cena" cssClass="form-input"/>
     <form:errors path="price" />
+
 
 
 

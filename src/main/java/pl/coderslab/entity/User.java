@@ -1,10 +1,13 @@
 package pl.coderslab.entity;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.validator.groups.ValidationLoginGroup;
 import pl.coderslab.validator.groups.ValidationRegisterGroup;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +29,7 @@ public class User {
     @NotEmpty(groups = {Default.class, ValidationLoginGroup.class, ValidationRegisterGroup.class})
     private String userName;
 
-    @NotEmpty(groups = {Default.class, ValidationLoginGroup.class, ValidationRegisterGroup.class})
+    @NotEmpty(groups = {Default.class, ValidationLoginGroup.class})
     private String password;
 
     @NotEmpty(groups = {ValidationRegisterGroup.class})
@@ -35,13 +38,13 @@ public class User {
     @NotEmpty(groups = {ValidationRegisterGroup.class})
     private String street;
 
-    @NotEmpty(groups = {ValidationRegisterGroup.class})
+    @NotNull(groups = {ValidationRegisterGroup.class})
     private Long nr;
 
     @NotEmpty(groups = {ValidationRegisterGroup.class})
-    private Long postCode;
+    private String postCode;
 
-    @NotEmpty(groups = {ValidationLoginGroup.class, ValidationRegisterGroup.class})
+    @Email(groups = {ValidationLoginGroup.class, ValidationRegisterGroup.class})
     private String email;
 
     private boolean enabled = true;
@@ -119,11 +122,12 @@ public class User {
         this.nr = nr;
     }
 
-    public Long getPostCode() {
+
+    public String getPostCode() {
         return postCode;
     }
 
-    public void setPostCode(Long postCode) {
+    public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
 

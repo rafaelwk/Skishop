@@ -25,19 +25,31 @@
     <form:input path="userName" placeholder="userName" cssClass="form-input"/>
     <form:errors path="userName" cssClass="alert"/>
 
-    <form:input path="password" placeholder="password"  cssClass="form-input"/>
-    <input type="password" name="pwd2" placeholder="repeat password"/>
-    <form:errors path="password" />
+    <form:hidden path="password" placeholder="password"  cssClass="form-input"/>
+    <%--<input type="password" name="pwd2" placeholder="repeat password"/>--%>
+    <%--<form:errors path="password" />--%>
+
+    <form:input path="firstName" placeholder="imię" />
+    <form:errors path="firstName" />
+
+    <form:input path="lastName" placeholder="nazwisko" />
+    <form:errors path="lastName" />
+
+    <form:input path="city" placeholder="miasto" />
+    <form:errors path="city" />
+
+    <form:input path="street" placeholder="ulica" />
+    <form:errors path="street" />
+
+    <form:input path="nr" placeholder="nr" />
+    <form:errors path="nr" />
+
+    <form:input path="postCode" placeholder="kod pocztowy" />
+    <form:errors path="postCode" />
 
     <form:input path="email" placeholder="email" />
     <form:errors path="email" />
 
-    <%--<form:select path="cart"  cssClass="form-input">--%>
-        <%--<form:option value="0" disabled="true" selected="true">Wybierz wybierz typ produktu</form:option>--%>
-        <%--<form:options  items="${carts}"--%>
-                       <%--itemValue="id"--%>
-                       <%--itemLabel="name" />--%>
-    <%--</form:select>--%>
 
     <input type="submit"  class="btn btn-success">
 </form:form>

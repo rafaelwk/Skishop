@@ -15,17 +15,9 @@
 </c:if>
 
 <ul>
-    <c:forEach items="${carts}" var="cart">
-    <li>
-        <h2>${cart.name}</h2>
-        <p>
-            <a href="${pageContext.request.contextPath}/cart/edit/${cart.id}">edytuj</a>
-            <a href="${pageContext.request.contextPath}/cart/delete/${cart.id}">usuń</a>
 
-        </p>
-    </li>
-    </c:forEach>
-
+    <p>kwota do zaplaty: ${sum} zł</p>
+    <a href="${pageContext.request.contextPath}/user/formfull/">Zatwierdż</a>
 
 
 </body>

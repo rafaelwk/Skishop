@@ -23,6 +23,7 @@
             <a href="${pageContext.request.contextPath}/cartItem/form/${product.id}">dodaj do koszyka</a>
 
         </p>
+
     </li>
     </c:forEach>
 </body>

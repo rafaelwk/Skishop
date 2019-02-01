@@ -18,19 +18,28 @@
 
     <c:if test="${not empty user}">
         <div>
-            <p>Hello, ${user.userName}, ${user.adminUser}</p>
-        <c:if test="${user.adminUser == true}">
-                <a href="${pageContext.request.contextPath}/productType/list/">dodaj produkt</a>
-        </c:if>
-            <c:forEach items="${productTypes}" var="productType">
-                <a href="${pageContext.request.contextPath}/product/listtype/${productType.id}">${productType.name}</a>
-            </c:forEach>
+            <p>Hello ${user.userName}<c:if test="${user.adminUser == true}"> = ${user.adminUser}</c:if> </p>
 
-        </div>
-        <div>
+            <c:if test="${user.adminUser == true}">
+                <p><a href="${pageContext.request.contextPath}/productType/list/">dodaj produkt</a></p>
+                <p><a href="${pageContext.request.contextPath}/user/list/">lista urzytkowników</a></p>
+
+            </c:if>
+                <c:if test="${user.adminUser != true}">
+                     <c:forEach items="${productTypes}" var="productType">
+                        <a href="${pageContext.request.contextPath}/product/listtype/${productType.id}">${productType.name}</a>
+                     </c:forEach>
+
+
+                    </div>
+                    <div>
+
+                        <a href="${pageContext.request.contextPath}/cartItem/list/">Koszyk</a>
+                    </div>
+                </c:if>
+        <p>
             <a href="${pageContext.request.contextPath}/login/logout/">wyloguj się</a>
-        </div>
-
+        </p>
     </c:if>
 
     <c:if test="${empty user}">

@@ -3,7 +3,9 @@ package pl.coderslab.services;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.coderslab.entity.Cart;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.CartRepository;
 import pl.coderslab.repository.UserRepository;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +15,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CartRepository cartRepository;
 
     public void registerUser(User user, String repeatedPassword) throws Exception{
         if (userRepository.findAll().isEmpty()) {
@@ -33,11 +38,21 @@ public class UserService {
 
         User user = userRepository.findFirstByUserName(login);
 
+
         if (user != null &&
                         user.isEnabled() &&
                         BCrypt.checkpw(password, user.getPassword())
         ){
+
+            Cart cart = (Cart) sess.getAttribute("cart");
+            if(cart == null){
+                cart = new Cart();
+            }
+            cart.setUser(user);
+            cartRepository.save(cart);
+
             sess.setAttribute("user",user);
+            sess.setAttribute("cart", cart);
             return true;
         }
 

@@ -24,13 +24,14 @@
            modelAttribute="user"
            cssClass="container col-2" >
 
-    <form:input path="userName" placeholder="username" cssClass="form-input"/>
+    <form:input path="userName" placeholder="login" cssClass="form-input"/>
     <form:errors path="userName" cssClass="alert"/>
 
-    <form:input path="password" placeholder="password"  cssClass="form-input"/>
+    <form:input path="password" placeholder="hasło"  cssClass="form-input"/>
     <form:errors path="password" />
 
-    <input type="submit"   class="btn btn-success">
+    <input type="submit"   class="btn btn-success" value="Zaloguj się">
+    <a href="${pageContext.request.contextPath}/user/form/${user.password}">Zarejstruj się</a>
 </form:form>
 </body>
 </html>

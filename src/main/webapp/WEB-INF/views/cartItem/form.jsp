@@ -30,8 +30,6 @@
     <form:input path="quantity" placeholder="ilość sztuk" cssClass="form-input"/>
     <form:errors path="quantity" cssClass="alert"/>
 
-    <%--<form:input path="product" placeholder="product" cssClass="form-input"/>--%>
-    <%--<form:errors path="product" />--%>
 
 
     <input type="submit"  class="btn btn-success">
